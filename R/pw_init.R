@@ -17,7 +17,7 @@
 #' pw_init(use_xvfb = TRUE)
 #'
 #' @export
-pw_init <- function(use_xvfb = TRUE) {
+pw_init <- function(use_xvfb = FALSE) {
   if (use_xvfb && !exists("vdisplay")) {
     xlib <- import("xvfbwrapper")
     vdisplay <- xlib$Xvfb()

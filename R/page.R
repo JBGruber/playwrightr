@@ -49,5 +49,5 @@ new_page <- function(browser_df) {
 #'
 #' @export
 close_page <- function(page_df) {
-  py_run("{{page_df$page_id}}.close()")
+  py_run("{page_df$page_id}.close()")
 }

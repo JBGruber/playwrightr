@@ -1,7 +1,7 @@
 get_by_generic <- function(page_df, attr, method = "get_by_role") {
 
   page_df <- page_df %>%
-    distinct(browser_id, page_id)
+    dplyr::distinct(browser_id, page_id)
 
   elem_id <- generate_unique_id()
   py_run(glue("{elem_id} = {page_df$page_id}.{method}('{attr}').all()"))

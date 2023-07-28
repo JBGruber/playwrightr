@@ -4,7 +4,7 @@
 \alias{pw_init}
 \title{Initialize Playwright with optional XVFB}
 \usage{
-pw_init(use_xvfb = TRUE)
+pw_init(use_xvfb = FALSE)
 }
 \arguments{
 \item{use_xvfb}{A boolean value indicating whether to start XVFB using XVFBWrapper.

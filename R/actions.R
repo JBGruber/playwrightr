@@ -426,3 +426,28 @@ get_all_attributes <- function(page_df) {
   }
   bind_cols(page_df %>% rename(elem_index = id), bind_cols(py$named_attr))
 }
+
+#' Scroll on a page
+#'
+#' @param page_df A data frame containing page information, including the `page_id` column.
+#'   This data frame is used to identify the page object where the drag and drop operation should be performed.
+#' @param location A location string (see examples)
+#'
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # scroll to bottom of the page
+#' scroll(page, location = "scrollHeight")
+#'
+#' # scroll to top of the page
+#' scroll(page, location = "scrollTop")
+#'
+#' # scroll 100px down from the top of the page
+#' scroll(page, location = "scrollTop - 100")
+#' }
+scroll <- function(page_df,
+                   location = "scrollHeight") {
+  playwrightr:::py_run("{page_df$page_id}.evaluate('window.scrollTo(0, document.documentElement.{location})')")
+}
+
